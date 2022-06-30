@@ -7,7 +7,7 @@
 // If playerSelection input is equal to scissors while computerPlay is equal to paper, "You won! Scissors beat Paper"; Save win info for player
 // If playerSelection input is equal to paper while computerPlay is equal to rock, "You won! Paper beats Rock"; Save win info for player
 // If playerSelection input is equal to paper while computerPlay is equal to scissors, "You lost! Scissors beat Paper"; Save win info for computer
-// If playerSelection input is equal to computerPlay "Tie game, Play again!" 
+// If playerSelection input is equal to computerPlay "Tie game, Play again!"; Save win info both player and computer
 // Replay the game 5 
 // if playerScore is less than computerScore, "The computer won!"
 // if playerScore is more than computerScore, "The player won!"
