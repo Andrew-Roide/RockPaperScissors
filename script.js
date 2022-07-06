@@ -46,7 +46,7 @@ function playRound(){
 
 }   else if (playerSelection === computersMove)
     return 'Tie game, play again';
-}
+}   
 
 const computersMove = computerSelection();
 console.log(playRound());
