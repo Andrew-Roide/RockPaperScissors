@@ -1,4 +1,3 @@
-
 // Allow the playerSelection to input their selection of either rock, paper, scissors ~~~~done~~~~
 // Make playerSelection case-insensitive ~~~~done~~~~
 // Let the computerPlay randomly select either rock, paper, scissors ~~~~done~~~~
@@ -16,7 +15,7 @@
 
 let playerInput =  prompt("Choose Rock, Paper, or Scissors!");
 let playerSelection = playerInput.toLowerCase();
-const computerPlay = ['Rock','Paper','Scissors'];
+const computerPlay = ['rock','paper','scissors'];
 
 function computerSelection(){
     let options = computerPlay.length;
@@ -25,3 +24,29 @@ function computerSelection(){
     
     return randomComputerSelection;
 }
+
+function playRound(){
+    if (playerSelection === 'rock' && computersMove === 'scissors'){
+    return 'You won! Rock beats Scissors.';
+
+}   else if (playerSelection === 'rock' && computersMove === 'paper'){
+    return 'You lost! Paper beats Rock.';
+
+}   else if (playerSelection === 'scissors' && computersMove === 'rock'){
+    return 'You lost! Rock beats Scissors.';
+
+}   else if (playerSelection === 'scissors' && computersMove === 'paper'){
+    return 'You won! Scissors beats Paper.';
+
+}   else if (playerSelection === 'paper' && computersMove === 'rock'){
+    return 'You won! Paper beats Rock.';
+
+}   else if (playerSelection === 'paper' && computersMove === 'scissors'){
+    return 'You lost! Scissors beats Paper.';
+
+}   else if (playerSelection === computersMove)
+    return 'Tie game, play again';
+}
+
+const computersMove = computerSelection();
+console.log(playRound());
