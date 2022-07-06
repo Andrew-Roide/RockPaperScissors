@@ -24,29 +24,3 @@ function computerSelection(){
     
     return randomComputerSelection;
 }
-
-function playRound(){
-    if (playerSelection === 'rock' && computersMove === 'scissors'){
-    return 'You won! Rock beats Scissors.';
-
-}   else if (playerSelection === 'rock' && computersMove === 'paper'){
-    return 'You lost! Paper beats Rock.';
-
-}   else if (playerSelection === 'scissors' && computersMove === 'rock'){
-    return 'You lost! Rock beats Scissors.';
-
-}   else if (playerSelection === 'scissors' && computersMove === 'paper'){
-    return 'You won! Scissors beats Paper.';
-
-}   else if (playerSelection === 'paper' && computersMove === 'rock'){
-    return 'You won! Paper beats Rock.';
-
-}   else if (playerSelection === 'paper' && computersMove === 'scissors'){
-    return 'You lost! Scissors beats Paper.';
-
-}   else if (playerSelection === computersMove)
-    return 'Tie game, play again';
-}   
-
-const computersMove = computerSelection();
-console.log(playRound());
