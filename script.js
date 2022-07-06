@@ -1,3 +1,4 @@
+
 // Allow the playerSelection to input their selection of either rock, paper, scissors ~~~~done~~~~
 // Make playerSelection case-insensitive ~~~~done~~~~
 // Let the computerPlay randomly select either rock, paper, scissors ~~~~done~~~~
@@ -24,5 +25,3 @@ function computerSelection(){
     
     return randomComputerSelection;
 }
-
-
