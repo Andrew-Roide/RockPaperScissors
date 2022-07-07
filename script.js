@@ -45,12 +45,12 @@ function playRound() {
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
         (playerSelection === choiceScissors && computersMove === choicePaper) ||
         (playerSelection === choicePaper && computersMove === choiceRock)) {
-        return `You won! ${playerSelection} beats ${computersMove}.`;
+        return `You won! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()}.`;
     } else if (
         (playerSelection === choiceRock && computersMove === choicePaper) ||
         (playerSelection === choiceScissors && computersMove === choiceRock) ||
         (playerSelection === choicePaper && computersMove === choiceScissors)) {
-        return `You lost! ${computersMove} beats ${playerSelection}.`;  
+        return `You lost! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;  
     } else if (playerSelection === computersMove) {
         return "Tie game, Play again.";
 }
