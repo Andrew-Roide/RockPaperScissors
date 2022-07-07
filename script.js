@@ -37,9 +37,9 @@ function computerSelection(){
     */
    
 function playRound() {
-    var rock = 'rock';
-    var scissors = 'scissors';
-    var paper = 'paper';
+    var rock = "rock";
+    var scissors = "scissors";
+    var paper = "paper";
     
     if (
         (playerSelection === rock && computersMove === scissors) ||
