@@ -16,7 +16,7 @@ if playerScore is equal to computerScore, "Tie game. Play another 5 rounds"
 
 let playerInput =  prompt("Choose Rock, Paper, or Scissors!");
 let playerSelection = playerInput.toLowerCase();
-const computerPlay = ['rock','paper','scissors'];
+const computerPlay = ["rock","paper","scissors"];
 
 function computerSelection(){
     let options = computerPlay.length;
@@ -35,20 +35,24 @@ function computerSelection(){
         4. If you wanted another function to generate the message to the user I like that too. It should take in the winner and loser as input and generate a string
             (This slightly changes what I said in #3)
     */
-   
+
 function playRound() {
+    var choiceRock = "rock";
+    var choicePaper = "paper";
+    var choiceScissors = "scissors";
+    
     if (
-        (playerSelection === 'rock' && computersMove === 'scissors') ||
-        (playerSelection === 'scissors' && computersMove === 'paper') ||
-        (playerSelection === 'paper' && computersMove === 'rock')) {
+        (playerSelection === choiceRock && computersMove === choiceScissors) ||
+        (playerSelection === choiceScissors && computersMove === choicePaper) ||
+        (playerSelection === choicePaper && computersMove === choiceRock)) {
         return `You won! ${playerSelection} beats ${computersMove}.`;
     } else if (
-        (playerSelection === 'rock' && computersMove === 'paper') ||
-        (playerSelection === 'scissors' && computersMove === 'rock') ||
-        (playerSelection === 'paper' && computersMove === 'scissors')) {
+        (playerSelection === choiceRock && computersMove === choicePaper) ||
+        (playerSelection === choiceScissors && computersMove === choiceRock) ||
+        (playerSelection === choicePaper && computersMove === choiceScissors)) {
         return `You lost! ${computersMove} beats ${playerSelection}.`;  
     } else if (playerSelection === computersMove) {
-        return 'Tie game, Play again.';
+        return "Tie game, Play again.";
 }
 }
 
