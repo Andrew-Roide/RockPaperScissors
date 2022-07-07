@@ -37,15 +37,19 @@ function computerSelection(){
     */
    
 function playRound() {
+    var rock = 'rock';
+    var scissors = 'scissors';
+    var paper = 'paper';
+    
     if (
-        (playerSelection === 'rock' && computersMove === 'scissors') ||
-        (playerSelection === 'scissors' && computersMove === 'paper') ||
-        (playerSelection === 'paper' && computersMove === 'rock')) {
+        (playerSelection === rock && computersMove === scissors) ||
+        (playerSelection === scissors && computersMove === paper) ||
+        (playerSelection === paper && computersMove === rock)) {
         return `You won! ${playerSelection} beats ${computersMove}.`;
     } else if (
-        (playerSelection === 'rock' && computersMove === 'paper') ||
-        (playerSelection === 'scissors' && computersMove === 'rock') ||
-        (playerSelection === 'paper' && computersMove === 'scissors')) {
+        (playerSelection === rock && computersMove === paper) ||
+        (playerSelection === scissors && computersMove === rock) ||
+        (playerSelection === paper && computersMove === scissors)) {
         return `You lost! ${computersMove} beats ${playerSelection}.`;  
     } else if (playerSelection === computersMove) {
         return 'Tie game, Play again.';
