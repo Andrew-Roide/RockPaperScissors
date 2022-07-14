@@ -13,14 +13,13 @@ if playerScore is less than computerScore, "The computer won!"
 if playerScore is more than computerScore, "The player won!"
 if playerScore is equal to computerScore, "Tie game. Play another 5 rounds"
 */
+var choiceRock = "rock";
+var choicePaper = "paper";
+var choiceScissors = "scissors";
 
-let playerInput =  prompt("Choose Rock, Paper, or Scissors!");
-let playerSelection = playerInput.toLowerCase();
-const computerPlay = ["rock","paper","scissors"];
-
-function computerSelection(){
-    let options = computerPlay.length;
-    let randomSelection = Math.floor(Math.random() * options);
+function computerSelection() {
+    let computerPlay = [choiceRock, choicePaper, choiceScissors];
+    let randomSelection = Math.floor(Math.random() * computerPlay.length);
     let randomComputerSelection = computerPlay[randomSelection];
     
     return randomComputerSelection;
@@ -37,10 +36,10 @@ function computerSelection(){
     */
 
 function playRound() {
-    var choiceRock = "rock";
-    var choicePaper = "paper";
-    var choiceScissors = "scissors";
-    
+    let playerInput =  prompt("Choose Rock, Paper, or Scissors!");
+    let playerSelection = playerInput.toLowerCase();
+    let computersMove = computerSelection();
+
     if (
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
         (playerSelection === choiceScissors && computersMove === choicePaper) ||
@@ -56,5 +55,16 @@ function playRound() {
 }
 }
 
-const computersMove = computerSelection();
-console.log(playRound());
+//console.log(playRound());
+
+function game() {
+    var resultsArray = [];
+    for (let i = 0; i < 5; i++) {
+        var result = playRound();
+        resultsArray.push(result);
+        console.log(result);
+    }
+    console.log(resultsArray);
+}
+
+game();
