@@ -38,7 +38,6 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: large;
     padding: 10px;
     margin: 10px;
   }
@@ -46,7 +45,9 @@ button {
 .text {
   display: flex;
   justify-content: center;
-  padding-top: 30px
+  padding-top: 30px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 img {
