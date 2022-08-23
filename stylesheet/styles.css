@@ -11,7 +11,7 @@ h1 {
   font-size: 80px;
 }
 
-h2 {
+.winner {
   display: flex;
   justify-content: center;
   font-size: 40px;
