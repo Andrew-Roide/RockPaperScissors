@@ -5,6 +5,11 @@ body {
     justify-content: center;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 80px;
+}
 .choices {
     display: flex;
     justify-content: space-between;
