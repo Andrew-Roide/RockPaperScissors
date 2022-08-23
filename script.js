@@ -11,9 +11,9 @@ function computerSelection() {
 }
 
 function playRound() {
-    let playerInput =  prompt("Choose Rock, Paper, or Scissors!");
-    let playerSelection = playerInput.toLowerCase();
-    let computersMove = computerSelection();
+    //let playerInput =  prompt("Choose Rock, Paper, or Scissors!");
+    //let playerSelection = playerInput.toLowerCase();
+    //let computersMove = computerSelection();
 
     if (
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
