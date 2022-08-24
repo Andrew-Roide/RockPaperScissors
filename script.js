@@ -10,10 +10,9 @@ function computerSelection() {
     return randomComputerSelection;
 }
 
-function playRound() {
+function playRound(playerSelection) {
     let computersMove = computerSelection();
-    let playerSelection = choiceRock || choicePaper || choiceScissors;
-    if (
+        if (
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
         (playerSelection === choiceScissors && computersMove === choicePaper) ||
         (playerSelection === choicePaper && computersMove === choiceRock)) {
@@ -27,20 +26,17 @@ function playRound() {
         document.querySelector("h2").innerHTML = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
 }
 }
-
 var allButtons = document.querySelectorAll(".selection");
 
 allButtons.forEach(buttons => {
-    buttons.addEventListener("click", HandelClick); 
+    buttons.addEventListener("click", getPlayerChoice); 
 });
 
-function HandelClick(){
-    var buttonInnerHtml = this.innerHtml;
-    playRound(buttonInnerHtml);
+function getPlayerChoice(event){
+    let playerSelection = (event.target.id);
+    console.log(playerSelection);
+    playRound(playerSelection);
 }
-
-
-
 // function game() {
 //     var resultsArray = [];
 //     for (let i = 0; i < 5; i++) {
@@ -48,5 +44,4 @@ function HandelClick(){
 //         resultsArray.push(result);
 //         console.log(result);
 //     }
-//     console.log(resultsArray);
-// }
+//     console.log(resultsArray);}
