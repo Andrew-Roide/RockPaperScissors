@@ -26,7 +26,7 @@ function playRound(playerSelection) {
         document.querySelector("h2").innerHTML = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
 }
 }
-var allButtons = document.querySelectorAll(".selection");
+var allButtons = document.querySelectorAll(".content");
 
 allButtons.forEach(buttons => {
     buttons.addEventListener("click", getPlayerChoice); 
@@ -37,6 +37,7 @@ function getPlayerChoice(event){
     console.log(playerSelection);
     playRound(playerSelection);
 }
+
 // function game() {
 //     var resultsArray = [];
 //     for (let i = 0; i < 5; i++) {
