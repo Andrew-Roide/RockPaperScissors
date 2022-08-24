@@ -35,8 +35,7 @@ button {
     padding: 0;
     margin: 10px;
     font-size: 5rem;
-    color: rgb(253, 5, 5);
-    text-shadow: 3px 0 #000000;
+    text-shadow: 3px 0 #858585;
     border-radius: 15px;
     background-color: rgb(80, 79, 79);
     width: 4em;
