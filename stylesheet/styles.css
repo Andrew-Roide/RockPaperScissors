@@ -29,11 +29,6 @@ button {
     padding: 0; 
 }
 
-.pressed {
-    box-shadow: 0 3px 4px 0 #ff0000;
-    opacity: 0.5;
-  }
-
 .button_content{
     display: flex;
     flex-direction: column;
