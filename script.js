@@ -24,7 +24,7 @@ function playRound(playerSelection) {
         (playerSelection === choiceRock && computersMove === choicePaper) ||
         (playerSelection === choiceScissors && computersMove === choiceRock) ||
         (playerSelection === choicePaper && computersMove === choiceScissors)) {
-        document.querySelector("h2").innerHTML = `Player 2 wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
+        document.querySelector("h2").innerHTML = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
         document.querySelector(".p2-score").textContent = playerTwoScore++;
     } else if (playerSelection === computersMove) {
         document.querySelector("h2").innerHTML = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
