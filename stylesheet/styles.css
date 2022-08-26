@@ -26,6 +26,7 @@ h1 {
 button {
   background-color:rgb(80, 79, 79);
   border-radius: 10px;
+  transform: translateY(1px);
 }
 
 .content{
@@ -39,7 +40,6 @@ button {
   width: 4em;
   margin: 5px;
   border: 5px solid black;
-  transform: translateY(1px);
   }
 
 .text {
