@@ -30,8 +30,8 @@ function playRound(playerSelection) {
         document.querySelector("h2").innerHTML = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
 }
 }
-var allButtons = document.querySelectorAll(".content");
 
+var allButtons = document.querySelectorAll(".content");
 allButtons.forEach(buttons => {
     buttons.addEventListener("click", getPlayerChoice); 
 });
