@@ -1,8 +1,8 @@
 var choiceRock = "Rock";
 var choicePaper = "Paper";
 var choiceScissors = "Scissors";
-var playerOneScore = 0;
-var playerTwoScore = 0;
+var playerOneScore = 1;
+var playerTwoScore = 1;
 
 function computerSelection() {
     let computerPlay = [choiceRock, choicePaper, choiceScissors];
@@ -25,7 +25,7 @@ function playRound(playerSelection) {
         (playerSelection === choiceScissors && computersMove === choiceRock) ||
         (playerSelection === choicePaper && computersMove === choiceScissors)) {
         document.querySelector("h2").innerHTML = `Player 2 wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
-        document.querySelector(".p2-score").textContent = playerOneScore++;
+        document.querySelector(".p2-score").textContent = playerTwoScore++;
     } else if (playerSelection === computersMove) {
         document.querySelector("h2").innerHTML = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
 }
