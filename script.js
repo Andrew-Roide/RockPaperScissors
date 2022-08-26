@@ -34,7 +34,6 @@ allButtons.forEach(buttons => {
 
 function getPlayerChoice(event){
     let playerSelection = (event.target.id);
-    console.log(playerSelection);
     playRound(playerSelection);
 }
 
