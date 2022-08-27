@@ -104,3 +104,13 @@ img {
   text-align: center;
   margin: 10px;
 }
+
+.final-winner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bold;
+  text-align: center;
+  font-size: 30px;
+}
+
