@@ -10,26 +10,26 @@
 
 <body>
     <div class="container">
-        <h1>Welcome to Rock, Paper, Scissors!</h1>
+        <h1 class="welcome-message">Welcome to Rock, Paper, Scissors!</h1>
 
         <div class="winner">
-            <h2>Choose an option to see who wins</h2>
+            <h2 id="winnerMessage">Choose an option to see who wins</h2>
         </div>
 
         <div class="choices">
-            <div class="content">
-                <button id="Rock" class="selection"><img id="Rock" src="./images/rock.png" alt="Rock">
-                    <div id="Rock" class ="text">Rock</div>
+            <div class="content" data-playerChoices="Rock">
+                <button class="selection"><img src="./images/rock.png" alt="Rock">
+                    <div class ="text">Rock</div>
                 </button>
             </div>
-            <div class="content">
-                <button id="Paper" class="selection"><img id="Paper" src="./images/paper.png" alt="Paper">
-                    <div id="Paper" class ="text">Paper</div>
+            <div class="content" data-playerChoices="Paper">
+                <button class="selection"><img src="./images/paper.png" alt="Paper">
+                    <div class ="text">Paper</div>
                 </button>  
             </div>
-            <div class="content">
-                <button id="Scissors" class="selection"><img id="Scissors" src="./images/scissors.png" alt="Scissors">
-                    <div id="Scissors" class ="text">Scissors</div>
+            <div class="content" data-playerChoices="Scissors">
+                <button class="selection"><img src="./images/scissors.png" alt="Scissors">
+                    <div class ="text">Scissors</div>
                 </button>   
             </div>
         </div>
