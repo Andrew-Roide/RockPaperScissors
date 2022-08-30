@@ -3,6 +3,7 @@ var choicePaper = "Paper";
 var choiceScissors = "Scissors";
 var playerOneScore = 0;
 var playerTwoScore = 0;
+var numberOfRounds = 5;
 
 // random number computer will generate
 function computerSelection() {
@@ -16,22 +17,26 @@ function computerSelection() {
 //plays a single round and produces round winner
 function playRound(playerSelection) {
     let computersMove = computerSelection();
-        if (
+    let roundWinnerMessage = document.getElementById("winnerMessage");
+    let p1WinnerMessage = `Player 1 wins! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()} `;
+    let p2WinnerMessage = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
+    let drawGameMessage = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
+    if (
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
         (playerSelection === choiceScissors && computersMove === choicePaper) ||
         (playerSelection === choicePaper && computersMove === choiceRock)) {
-        document.querySelector("h2").innerHTML = `Player 1 wins! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()} `;
+        roundWinnerMessage.innerHTML = p1WinnerMessage;
         document.querySelector(".p1-score").textContent = (playerOneScore++) + 1;
     } else if (
         (playerSelection === choiceRock && computersMove === choicePaper) ||
         (playerSelection === choiceScissors && computersMove === choiceRock) ||
         (playerSelection === choicePaper && computersMove === choiceScissors)) {
-        document.querySelector("h2").innerHTML = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
+        roundWinnerMessage.innerHTML = p2WinnerMessage;
         document.querySelector(".p2-score").textContent = (playerTwoScore++) + 1;
     } else if (playerSelection === computersMove) {
-        document.querySelector("h2").innerHTML = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
+        roundWinnerMessage.innerHTML = drawGameMessage;
 }
-winnerOutcome();
+    displayFinalMessage();
 }
 
 //targets button content to give clickable feature
@@ -40,18 +45,19 @@ allButtons.forEach(buttons => {
     buttons.addEventListener("click", getPlayerChoice); 
 });
 
-function getPlayerChoice(event){
-    let playerSelection = (event.target.id);
+function getPlayerChoice(){
+    let playerSelection = this.getAttribute("data-playerChoices");
     playRound(playerSelection);
 }
 
-function winnerOutcome() {
+// displays final round message who reached numberOfRounds first
+function displayFinalMessage() {
     let p1Score = playerOneScore;
     let p2Score = playerTwoScore;
-    if (p1Score === 5) {
-        document.querySelector(".final-winner").textContent = "Congratulations! You beat the computer!";
-    }else if (p2Score === 5) {
-        document.querySelector(".final-winner").textContent = "The computer has won! Resistance is futile!";
+    let finalWinnerMessage = document.querySelector(".final-winner");
+    if (p1Score === numberOfRounds) {
+        finalWinnerMessage.textContent = "Congratulations! You beat the computer!";
+    } else if (p2Score === numberOfRounds) {
+        finalWinnerMessage.textContent = "The computer has won! Resistance is futile!";
     } 
 }
-
