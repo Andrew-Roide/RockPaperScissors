@@ -17,27 +17,28 @@ function computerSelection() {
 //plays a single round and produces round winner
 function playRound(playerSelection) {
     let computersMove = computerSelection();
-    let roundWinnerMessage = document.getElementById("winnerMessage");
-    let p1WinnerMessage = `Player 1 wins! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()} `;
-    let p2WinnerMessage = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
-    let drawGameMessage = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
+    let roundWinnerMessageElement = document.getElementById("winnerMessage");
+    let winnerMessage = "";
+
     if (
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
         (playerSelection === choiceScissors && computersMove === choicePaper) ||
         (playerSelection === choicePaper && computersMove === choiceRock)) {
-        roundWinnerMessage.innerHTML = p1WinnerMessage;
+        winnerMessage = `Human wins! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()} `;
         document.querySelector(".p1-score").textContent = (playerOneScore++) + 1;
     } else if (
         (playerSelection === choiceRock && computersMove === choicePaper) ||
         (playerSelection === choiceScissors && computersMove === choiceRock) ||
         (playerSelection === choicePaper && computersMove === choiceScissors)) {
-        roundWinnerMessage.innerHTML = p2WinnerMessage;
+        winnerMessage = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
         document.querySelector(".p2-score").textContent = (playerTwoScore++) + 1;
     } else if (playerSelection === computersMove) {
-        roundWinnerMessage.innerHTML = drawGameMessage;
+        winnerMessage = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
 }
+    roundWinnerMessageElement.innerHTML = winnerMessage;
     displayFinalMessage();
 }
+
 
 //targets button content to give clickable feature
 var allButtons = document.querySelectorAll(".content");
@@ -54,10 +55,13 @@ function getPlayerChoice(){
 function displayFinalMessage() {
     let p1Score = playerOneScore;
     let p2Score = playerTwoScore;
-    let finalWinnerMessage = document.querySelector(".final-winner");
+    let finalWinnerMessageElement = document.querySelector(".final-winner");
+    let finalWinner = "";
+    
     if (p1Score === numberOfRounds) {
-        finalWinnerMessage.textContent = "Congratulations! You beat the computer!";
+        finalWinner = "Congratulations! You beat the computer!";
     } else if (p2Score === numberOfRounds) {
-        finalWinnerMessage.textContent = "The computer has won! Resistance is futile!";
+        finalWinner = "The computer has won! Resistance is futile!";
     } 
+    finalWinnerMessageElement.innerHTML = finalWinner;
 }
