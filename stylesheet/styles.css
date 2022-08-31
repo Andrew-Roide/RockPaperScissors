@@ -15,6 +15,20 @@ body {
   display: flex;
   justify-content: center;
   font-size: 40px;
+  flex-direction: column;
+}
+
+.vs-message {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  margin: 10px;
+}
+
+#winnerMessage {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .choices {
@@ -24,9 +38,8 @@ body {
 }
 
 .selection {
-  background-color:rgb(80, 79, 79);
+  background-color:rgb(133, 130, 130);
   border-radius: 10px;
-  transform: translateY(1px);
 }
 
 .content {
@@ -71,6 +84,7 @@ img {
   border: 5px solid black;
   height: 100px;
   width: 200px;
+  background-color:rgb(133, 130, 130);
 }
 
 .p2-container {
@@ -85,6 +99,7 @@ img {
   border: 5px solid black;
   height: 100px;
   width: 200px;
+  background-color:rgb(133, 130, 130);
 }
 
 .p1-name {
