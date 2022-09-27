@@ -19,22 +19,19 @@ function playRound(playerSelection) {
     let computersMove = computerSelection();
     let roundWinnerMessageElement = document.getElementById("winnerMessage");
     let winnerMessage = "";
-
     if (
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
         (playerSelection === choiceScissors && computersMove === choicePaper) ||
         (playerSelection === choicePaper && computersMove === choiceRock)) {
         winnerMessage = `Human wins! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()} `;
         document.querySelector(".p1-score").textContent = (playerOneScore++) + 1;
-    } else if (
-        (playerSelection === choiceRock && computersMove === choicePaper) ||
-        (playerSelection === choiceScissors && computersMove === choiceRock) ||
-        (playerSelection === choicePaper && computersMove === choiceScissors)) {
-        winnerMessage = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
-        document.querySelector(".p2-score").textContent = (playerTwoScore++) + 1;
     } else if (playerSelection === computersMove) {
         winnerMessage = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
-}
+    } else {
+        winnerMessage = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
+        document.querySelector(".p2-score").textContent = (playerTwoScore++) + 1;
+    } 
+
     roundWinnerMessageElement.innerHTML = winnerMessage;
     displayFinalMessage();
 }
@@ -51,7 +48,7 @@ function getPlayerChoice(){
     playRound(playerSelection);
 }
 
-// displays final round message who reached numberOfRounds first
+// displays final round message who reached numberOfRounds first and targets button content to disables clickable feature
 function displayFinalMessage() {
     let p1Score = playerOneScore;
     let p2Score = playerTwoScore;
@@ -59,8 +56,16 @@ function displayFinalMessage() {
     let finalWinner = "";
     
     if (p1Score === numberOfRounds) {
+        var allButtons = document.querySelectorAll(".content");
+        allButtons.forEach(buttons => {
+            buttons.removeEventListener("click", getPlayerChoice); 
+    });
         finalWinner = "Congratulations! You beat the computer!";
     } else if (p2Score === numberOfRounds) {
+        var allButtons = document.querySelectorAll(".content");
+        allButtons.forEach(buttons => {
+            buttons.removeEventListener("click", getPlayerChoice); 
+    });
         finalWinner = "The computer has won! Resistance is futile!";
     } 
     finalWinnerMessageElement.innerHTML = finalWinner;
