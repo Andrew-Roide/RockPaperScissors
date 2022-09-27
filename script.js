@@ -61,12 +61,24 @@ function displayFinalMessage() {
             buttons.removeEventListener("click", getPlayerChoice); 
     });
         finalWinner = "Congratulations! You beat the computer!";
+        document.getElementById("refreshContainer").style.display = 'block';
+        document.getElementById("refreshContainer").style.display = 'flex';
     } else if (p2Score === numberOfRounds) {
         var allButtons = document.querySelectorAll(".content");
         allButtons.forEach(buttons => {
             buttons.removeEventListener("click", getPlayerChoice); 
     });
         finalWinner = "The computer has won! Resistance is futile!";
+        document.getElementById("refreshContainer").style.display = 'block';
+        document.getElementById("refreshContainer").style.display = 'flex';
     } 
+
     finalWinnerMessageElement.innerHTML = finalWinner;
+}
+
+let newGame = document.querySelector('.refresh');
+newGame.addEventListener('click', refreshPage);
+
+function refreshPage() {
+    window.location.reload(true);
 }
