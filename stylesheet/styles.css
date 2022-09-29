@@ -143,24 +143,25 @@ img {
   display: none;
 }
 
+.refresh {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 5px solid black;
+  height: 65px;
+  width: auto;
+  background-color:rgb(133, 130, 130);
+}
+
 .refresh:hover {
   background-color: rgb(159, 158, 161);
 }
 
 .refresh:active {
   background-color: rgb(198, 197, 201);
-}
-
-.refresh {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  padding-top: 10px;
-  font-size: 25px;
-  font-weight: bold;
-  border-radius: 10px;
-  border: 5px solid black;
-  height: 50px;
-  width: 150px;
-  background-color:rgb(133, 130, 130);
 }
