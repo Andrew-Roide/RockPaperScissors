@@ -54,20 +54,19 @@ function displayFinalMessage() {
     let p2Score = playerTwoScore;
     let finalWinnerMessageElement = document.querySelector(".final-winner");
     let finalWinner = "";
+    let allButtons = document.querySelectorAll(".content");
     
     if (p1Score === numberOfRounds) {
-        var allButtons = document.querySelectorAll(".content");
         allButtons.forEach(buttons => {
             buttons.removeEventListener("click", getPlayerChoice); 
-    });
+        });
         finalWinner = "Congratulations! You beat the computer!";
         document.getElementById("refreshContainer").style.display = 'block';
         document.getElementById("refreshContainer").style.display = 'flex';
     } else if (p2Score === numberOfRounds) {
-        var allButtons = document.querySelectorAll(".content");
         allButtons.forEach(buttons => {
             buttons.removeEventListener("click", getPlayerChoice); 
-    });
+        });
         finalWinner = "The computer has won! Resistance is futile!";
         document.getElementById("refreshContainer").style.display = 'block';
         document.getElementById("refreshContainer").style.display = 'flex';
