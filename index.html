@@ -10,28 +10,53 @@
 
 <body>
     <div class="container">
-        <h1>Welcome to Rock, Paper, Scissors!</h1>
+        <h1 class="welcome-message">Welcome to Rock, Paper, Scissors!</h1>
 
         <div class="winner">
-            <h2>Who won</h2>
+            <h2 class="vs-message">Human VS Computer!</h2>
+            <h2 id="winnerMessage">Choose your option to see who wins</h2>
         </div>
 
         <div class="choices">
-            <div class="button_content">
-                <button><img src="./images/rock.png" alt="Rock"></button>
-                <div class="text">Rock</div>
-                </div>
-            <div class="button_content">
-                    <button><img src="./images/paper.png" alt="Paper"></button>
-                    <div class="text">Paper</div>
+            <div class="content" data-playerChoices="Rock">
+                <button class="selection">
+                        <img src="./images/rock.png" alt="Rock">
+                    <div class ="text">Rock</div>
+                </button>
             </div>
-            <div class="button_content">
-                    <button><img src="./images/scissors.png" alt="Scissors"></button>
-                    <div class="text">Scissors</div>
+            <div class="content" data-playerChoices="Paper">
+                <button class="selection">
+                        <img src="./images/paper.png" alt="Paper">
+                    <div class ="text">Paper</div>
+                </button>  
+            </div>
+            <div class="content" data-playerChoices="Scissors">
+                <button class="selection">
+                        <img src="./images/scissors.png" alt="Scissors">
+                    <div class ="text">Scissors</div>
+                </button>   
             </div>
         </div>
 
+        <div class="score-container">
+            <div class="p1-container">
+                <div class="p1-name">Human</div>
+                <div class="p1-score">0</div>
+            </div>
+            <div class="p2-container">
+                <div class="p2-name">Computer</div>
+                <div class="p2-score">0</div>
+            </div>
+        </div>
+
+        <div class="final-winner"></div>  
+
+    <div id = "refreshContainer">
+        <button class = "refresh">Play Again?</button>
     </div>
-    <!-- <script src="./script.js"></script> -->
+
+    </div>
+
+    <script src="./script.js"></script> 
 </body>
 </html>

@@ -1,7 +1,11 @@
-var choiceRock = "rock";
-var choicePaper = "paper";
-var choiceScissors = "scissors";
+var choiceRock = "Rock";
+var choicePaper = "Paper";
+var choiceScissors = "Scissors";
+var playerOneScore = 0;
+var playerTwoScore = 0;
+var numberOfRounds = 5;
 
+// random number computer will generate
 function computerSelection() {
     let computerPlay = [choiceRock, choicePaper, choiceScissors];
     let randomSelection = Math.floor(Math.random() * computerPlay.length);
@@ -10,34 +14,70 @@ function computerSelection() {
     return randomComputerSelection;
 }
 
-function playRound() {
-    //let playerInput =  prompt("Choose Rock, Paper, or Scissors!");
-    //let playerSelection = playerInput.toLowerCase();
-    //let computersMove = computerSelection();
-
+//plays a single round and produces round winner
+function playRound(playerSelection) {
+    let computersMove = computerSelection();
+    let roundWinnerMessageElement = document.getElementById("winnerMessage");
+    let winnerMessage = "";
     if (
         (playerSelection === choiceRock && computersMove === choiceScissors) ||
         (playerSelection === choiceScissors && computersMove === choicePaper) ||
         (playerSelection === choicePaper && computersMove === choiceRock)) {
-        return `You won! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()}.`;
-    } else if (
-        (playerSelection === choiceRock && computersMove === choicePaper) ||
-        (playerSelection === choiceScissors && computersMove === choiceRock) ||
-        (playerSelection === choicePaper && computersMove === choiceScissors)) {
-        return `You lost! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()}.`;  
+        winnerMessage = `Human wins! ${playerSelection.toUpperCase()} beats ${computersMove.toUpperCase()} `;
+        document.querySelector(".p1-score").textContent = (playerOneScore++) + 1;
     } else if (playerSelection === computersMove) {
-        return "Tie game, Play again.";
-}
+        winnerMessage = `Draw Game! ${playerSelection.toUpperCase()} vs ${computersMove.toUpperCase()} `;
+    } else {
+        winnerMessage = `Computer wins! ${computersMove.toUpperCase()} beats ${playerSelection.toUpperCase()} `;
+        document.querySelector(".p2-score").textContent = (playerTwoScore++) + 1;
+    } 
+
+    roundWinnerMessageElement.innerHTML = winnerMessage;
+    displayFinalMessage();
 }
 
-function game() {
-    var resultsArray = [];
-    for (let i = 0; i < 5; i++) {
-        var result = playRound();
-        resultsArray.push(result);
-        console.log(result);
-    }
-    console.log(resultsArray);
+
+//targets button content to give clickable feature
+var allButtons = document.querySelectorAll(".content");
+allButtons.forEach(buttons => {
+    buttons.addEventListener("click", getPlayerChoice); 
+});
+
+function getPlayerChoice(){
+    let playerSelection = this.getAttribute("data-playerChoices");
+    playRound(playerSelection);
 }
 
-game();
+// displays final round message who reached numberOfRounds first and targets button content to disables clickable feature
+function displayFinalMessage() {
+    let p1Score = playerOneScore;
+    let p2Score = playerTwoScore;
+    let finalWinnerMessageElement = document.querySelector(".final-winner");
+    let finalWinner = "";
+    let allButtons = document.querySelectorAll(".content");
+    
+    if (p1Score === numberOfRounds) {
+        allButtons.forEach(buttons => {
+            buttons.removeEventListener("click", getPlayerChoice); 
+        });
+        finalWinner = "Congratulations! You beat the computer!";
+        document.getElementById("refreshContainer").style.display = 'block';
+        document.getElementById("refreshContainer").style.display = 'flex';
+    } else if (p2Score === numberOfRounds) {
+        allButtons.forEach(buttons => {
+            buttons.removeEventListener("click", getPlayerChoice); 
+        });
+        finalWinner = "The computer has won! Resistance is futile!";
+        document.getElementById("refreshContainer").style.display = 'block';
+        document.getElementById("refreshContainer").style.display = 'flex';
+    } 
+
+    finalWinnerMessageElement.innerHTML = finalWinner;
+}
+
+let newGame = document.querySelector('.refresh');
+newGame.addEventListener('click', refreshPage);
+
+function refreshPage() {
+    window.location.reload(true);
+}
